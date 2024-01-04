@@ -1,6 +1,14 @@
 return {
-    "ellisonleao/gruvbox.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
+    {
+        "EdenEast/nightfox.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    }
 }
