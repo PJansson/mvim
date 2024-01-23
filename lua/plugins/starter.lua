@@ -9,7 +9,7 @@ return {
                 {
                     { action = "Telescope file_browser", name = "Browser",   section = "Telescope" },
                     { action = "Telescope find_files",   name = "Files",     section = "Telescope" },
-                    { action = "Telescope live_grep",    name = "Live grep", section = "Telescope" },
+                    { action = "Telescope live_grep",    name = "Grep",      section = "Telescope" },
                     { action = "Telescope projects",     name = "Projects",  section = "Telescope" },
                 },
                 starter.sections.builtin_actions(),
