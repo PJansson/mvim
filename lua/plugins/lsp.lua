@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = { "lua_ls", "pyright" },
+                ensure_installed = { "lua_ls", "pyright", "ruff_lsp" },
             }
         end
     },
@@ -20,10 +20,23 @@ return {
             lspconfig.lua_ls.setup({})
             lspconfig.pyright.setup({
                 settings = {
+                    pyright = {
+                        disableOrganizeImports = true,
+                    },
                     python = {
-                        analysis = { diagnosticMode = "off", typeCheckingMode = "off" },
+                        analysis = { ignore = { '*' } },
                     },
                 },
+            })
+
+            local on_attach = function(client, bufnr)
+                if client.name == 'ruff_lsp' then
+                   client.server_capabilities.hoverProvider = false
+                end
+            end
+
+            lspconfig.ruff_lsp.setup({
+                on_attach = on_attach,
             })
 
             vim.api.nvim_create_autocmd("LspAttach", {
