@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = { "lua_ls", "pyright", "ruff_lsp" },
+                ensure_installed = { "lua_ls", "pyright", "ruff" },
             }
         end
     },
@@ -30,12 +30,12 @@ return {
             })
 
             local on_attach = function(client, bufnr)
-                if client.name == 'ruff_lsp' then
+                if client.name == 'ruff' then
                    client.server_capabilities.hoverProvider = false
                 end
             end
 
-            lspconfig.ruff_lsp.setup({
+            lspconfig.ruff.setup({
                 on_attach = on_attach,
             })
 
